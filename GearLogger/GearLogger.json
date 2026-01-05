@@ -1,0 +1,9 @@
+{
+  "Author": "a1icja",
+  "Name": "Gear Logger",
+  "Punchline": "Logs gear stats from the Examine window",
+  "Description": "Logs the gear stats of any inspected player to a file for easy review later. Files are saved in \"%UserProfile%\\Documents\\GearLogs\" with the timestamp of creation in the filename.",
+  "Version": "1.0.0",
+  "ApplicableVersion": "any",
+  "Tags": ["logger", "gear", "party"]
+}
