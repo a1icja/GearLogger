@@ -87,6 +87,7 @@ public sealed class GearLogger : IDalamudPlugin
         {
             var paramValue = usedParam[j];
             var paramName = item.BaseParam[j].Value.Name.ExtractText();
+            paramName = GetEngParamName(paramName);
             switch (paramName)
             {
                 case "Strength":
@@ -127,5 +128,35 @@ public sealed class GearLogger : IDalamudPlugin
                     break;
             }
         }
+    }
+
+    private string GetEngParamName(string s)
+    {
+        string[] strength = ["Strength", "STR", "Stärke", "Force"];
+        string[] dexterity = ["Dexterity", "DEX", "Geschick", "Dextérité"];
+        string[] intelligence = ["Intelligence", "INT", "Intelligenz", "Intelligence"];
+        string[] mind = ["Mind", "MND", "Willenskraft", "Esprit"];
+        string[] criticalHit = ["Critical Hit", "クリティカル", "Kritische Treffer", "Critique"];
+        string[] determination = ["Determination", "意思力", "Entschlossenheit", "Détermination"];
+        string[] directHit = ["Direct Hit Rate", "ダイレクトヒット", "Direkter Treffer", "Coups nets"];
+        string[] skillSpeed = ["Skill Speed", "スキルスピード", "Schnelligkeit", "Vivacité"];
+        string[] spellSpeed = ["Spell Speed", "スペルスピード", "Zaubertempo", "Célérité"];
+        string[] piety = ["Piety", "信仰", "Frömmigkeit", "Piété"];
+        string[] vitality = ["Vitality", "VIT", "Konstitution", "Vitalité"];
+        string[] tenacity = ["Tenacity", "不屈", "Unbeugsamkeit", "Ténacité"];
+        
+        if (strength.Contains(s)) return "Strength";
+        if (dexterity.Contains(s)) return "Dexterity";
+        if (intelligence.Contains(s)) return "Intelligence";
+        if (mind.Contains(s)) return "Mind";
+        if (criticalHit.Contains(s)) return "Critical Hit";
+        if (determination.Contains(s)) return "Determination";
+        if (directHit.Contains(s)) return "Direct Hit Rate";
+        if (skillSpeed.Contains(s)) return "Skill Speed";
+        if (spellSpeed.Contains(s)) return "Spell Speed";
+        if (piety.Contains(s)) return "Piety";
+        if (vitality.Contains(s)) return "Vitality";
+        if (tenacity.Contains(s)) return "Tenacity";
+        return s;
     }
 }
